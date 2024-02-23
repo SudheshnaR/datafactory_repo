@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adfsudhu"
+		},
+		"ls_AzureSqlDatabasesudhu_connectionString": {
+			"value": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=cloudsqlsudhu.database.windows.net;Initial Catalog=cloud_databasesudhu;User ID=cloud"
+		},
+		"ls_SqlServer_sudhu_connectionString": {
+			"value": ""
+		},
+		"ls_blobstoragesudhu_connectionString": {
+			"value": ""
+		},
+		"ls_datalake_sudhu_accountKey": {
+			"value": ""
+		},
+		"ls_datalakesudhu_connectionString": {
+			"value": ""
+		},
+		"ls_mysql_sudhu_connectionString": {
+			"value": ""
+		},
+		"AzureKeyVaultsudhu_properties_typeProperties_baseUrl": {
+			"value": "https://keyvaultsudhu.vault.azure.net/"
+		},
+		"ls_datalake_sudhu_properties_typeProperties_url": {
+			"value": "https://datalakesudhu.dfs.core.windows.net/"
+		}
+	}
+}
