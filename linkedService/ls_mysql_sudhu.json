@@ -1,0 +1,16 @@
+{
+	"name": "ls_mysql_sudhu",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "MySql",
+		"typeProperties": {
+			"connectionString": "server=localhost;port=3306;database=adfdb;user=root;sslmode=0",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI5ZjY5MGIzNS02ODRkLTQ5ZjAtYmViZi0yMzI1NzY2NjJhMTUiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "integrationRuntimeselfhosted",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

@@ -1,0 +1,121 @@
+{
+	"name": "pl_sql_dl_variable",
+	"properties": {
+		"activities": [
+			{
+				"name": "ForEach1",
+				"type": "ForEach",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@variables('metadata')",
+						"type": "Expression"
+					},
+					"activities": [
+						{
+							"name": "Copy data1",
+							"type": "Copy",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"source": {
+									"type": "SqlServerSource",
+									"queryTimeout": "02:00:00",
+									"partitionOption": "None"
+								},
+								"sink": {
+									"type": "DelimitedTextSink",
+									"storeSettings": {
+										"type": "AzureBlobFSWriteSettings"
+									},
+									"formatSettings": {
+										"type": "DelimitedTextWriteSettings",
+										"quoteAllText": true,
+										"fileExtension": ".txt"
+									}
+								},
+								"enableStaging": false,
+								"translator": {
+									"type": "TabularTranslator",
+									"typeConversion": true,
+									"typeConversionSettings": {
+										"allowDataTruncation": true,
+										"treatBooleanAsNumber": false
+									}
+								}
+							},
+							"inputs": [
+								{
+									"referenceName": "SqlServerTable2",
+									"type": "DatasetReference",
+									"parameters": {
+										"source_schema": {
+											"value": "@item().Inputschema",
+											"type": "Expression"
+										},
+										"source_tablename": {
+											"value": "@item().Inputtable",
+											"type": "Expression"
+										}
+									}
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "sink_sqlserver_dl",
+									"type": "DatasetReference",
+									"parameters": {
+										"sink_container": {
+											"value": "@item().Outputcontainer",
+											"type": "Expression"
+										},
+										"sink_folder": {
+											"value": "@item().Outputdirectory",
+											"type": "Expression"
+										},
+										"sink_filename": {
+											"value": "@item().Outputfile",
+											"type": "Expression"
+										}
+									}
+								}
+							]
+						}
+					]
+				}
+			}
+		],
+		"variables": {
+			"metadata": {
+				"type": "Array",
+				"defaultValue": [
+					{
+						"Inputschema": "dbo",
+						"Inputtable": "persons",
+						"Outputfile": "persons.csv",
+						"Outputcontainer": "foreachoutput",
+						"Outputdirectory": "foreachsqlserver"
+					},
+					{
+						"Inputschema": "dbo",
+						"Inputtable": "department",
+						"Outputfile": "Department.csv",
+						"Outputcontainer": "foreachoutput",
+						"Outputdirectory": "foreachsqlserver"
+					}
+				]
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2024-02-23T10:09:21Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

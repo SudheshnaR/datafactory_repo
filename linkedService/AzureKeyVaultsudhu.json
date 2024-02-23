@@ -1,0 +1,11 @@
+{
+	"name": "AzureKeyVaultsudhu",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "https://keyvaultsudhu.vault.azure.net/"
+		}
+	}
+}

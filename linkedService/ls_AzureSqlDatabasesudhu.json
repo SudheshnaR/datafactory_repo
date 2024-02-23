@@ -1,0 +1,19 @@
+{
+	"name": "ls_AzureSqlDatabasesudhu",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureSqlDatabase",
+		"typeProperties": {
+			"connectionString": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=cloudsqlsudhu.database.windows.net;Initial Catalog=cloud_databasesudhu;User ID=cloud",
+			"password": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "AzureKeyVaultsudhu",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "Azuresqlpassword"
+			}
+		}
+	}
+}

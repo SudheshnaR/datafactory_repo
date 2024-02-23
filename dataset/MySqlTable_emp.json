@@ -1,0 +1,16 @@
+{
+	"name": "MySqlTable_emp",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_mysql_sudhu",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "MySqlTable",
+		"schema": [],
+		"typeProperties": {
+			"tableName": "`employee`"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
